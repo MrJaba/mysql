@@ -78,18 +78,6 @@ template '/etc/init/mysql.conf' do
   source 'init-mysql.conf.erb'
 end
 
-template '/etc/apparmor.d/usr.sbin.mysqld' do
-  source 'usr.sbin.mysqld.erb'
-  action :create
-  notifies :reload, 'service[apparmor-mysql]', :immediately
-end
-
-service 'apparmor-mysql' do
-  service_name 'apparmor'
-  action :nothing
-  supports :reload => true
-end
-
 template '/etc/mysql/my.cnf' do
   source 'my.cnf.erb'
   owner 'root'
