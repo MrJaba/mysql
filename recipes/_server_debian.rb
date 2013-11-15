@@ -74,7 +74,7 @@ directory node['mysql']['data_dir'] do
   recursive true
 end
 
-template '/etc/init/mysql.conf' do
+template '/etc/init.d/mysql.conf' do
   source 'init-mysql.conf.erb'
 end
 
